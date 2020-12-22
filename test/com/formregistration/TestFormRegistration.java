@@ -64,4 +64,18 @@ public class TestFormRegistration
         boolean result = formObject.mobileNumberValidation("91887897665544"); //invalid no gap between country code
         assertEquals(true, result);
     }
+    
+    //Password validation test case
+    @Test
+    public void getPassword_whenPasswordValid_shouldReturnTrue() 
+    {    
+        boolean result = formObject.passwordValidation("Vinit@574839"); //all conditions added
+        assertEquals(true, result);
+    }
+    @Test
+    public void getPassword_whenLessThan8Chars_shouldReturnFalse()
+    {    
+        boolean result = formObject.passwordValidation("V@123"); //less than 8 character
+        assertEquals(true, result);
+    }
 }
