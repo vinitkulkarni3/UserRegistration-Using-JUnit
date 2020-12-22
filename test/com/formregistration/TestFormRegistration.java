@@ -22,4 +22,18 @@ public class TestFormRegistration
         assertEquals(true, result);
         //assertFalse(result);
     }
+    
+    //last name validation test case
+    @Test
+    public void getLastName_whenProper_shouldReturnTrue() 
+    {    
+        boolean result = formObject.lastNameValidation("Kulkarni"); //starts with capital letter and minimum 3 letters
+        assertEquals(true, result);
+    }
+    @Test
+    public void getLastName_whenNotProper_shouldReturnFalse()
+    {    
+        boolean result = formObject.lastNameValidation("kul"); //only 3 character 
+        assertEquals(true, result);
+    }
 }
