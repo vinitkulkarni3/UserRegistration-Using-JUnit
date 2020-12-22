@@ -85,4 +85,17 @@ public class FormRegistration
         }
         return passwordFlag;
     }
+    
+    //Multiple email validation
+    public boolean multipleEmailvalidate(String email)
+    {
+        if(Pattern.matches(EMAILPATTERN, email))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }    
+    }
 }

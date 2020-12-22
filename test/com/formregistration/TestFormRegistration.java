@@ -1,11 +1,53 @@
 package com.formregistration;
 
+import java.util.Arrays;
+import java.util.List;
+import junit.framework.Assert;
 import static junit.framework.Assert.assertEquals;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
+@RunWith(Parameterized.class)
 public class TestFormRegistration
 {
+    String emailId;
+    boolean expectedResult;
+    private FormRegistration emailVariable;
     FormRegistration formObject = new FormRegistration();
+    
+    public TestFormRegistration(String emailId, boolean expectedResult) 
+    {
+        this.emailId = emailId;
+        this.expectedResult = expectedResult;
+    }
+    
+    @Before
+    public void initialize()
+    {
+        emailVariable = new FormRegistration();
+    }
+    
+    @Parameterized.Parameters
+    public static List<Object[]> emails()
+    {
+        return Arrays.asList(new Object[][] { {"Vinit@gmail.com", true}, {"Vinit@gmail.co.in",true}, {"vinitgmail.com", false}});
+    }
+    
+    @Test
+    public void testEmailId()
+    {
+        try
+        {
+            System.out.println("parameter email is->"+emailId);
+            Assert.assertEquals(expectedResult, emailVariable.multipleEmailvalidate(emailId));
+        }
+        catch(NullPointerException e)
+        {
+            System.out.println(e);
+        }
+    }
     
     //first name validation test case
     @Test
