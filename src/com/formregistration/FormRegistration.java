@@ -8,6 +8,7 @@ public class FormRegistration
     final String FIRSTNAMEPATTERN =  "^[A-Z]{1}[a-z]{2,}$";
     final String LASTNAMEPATTERN = "^[A-Z]{1}[a-z]{2,}$";
     final String EMAILPATTERN = "^[a-zA-Z0-9\\\\-\\\\+\\\\.]+.([a-zA-Z0-9])*@([a-z0-9]+.[a-z]{2,}.([a-z]{2,})?)$";
+    final String MOBILEPATTERN = "^[0-9]{2}[-]?[0-9]{10}$";
     
     //First Name validation
     public boolean firstNameValidation(String firstName)
@@ -52,5 +53,20 @@ public class FormRegistration
             emailFlag = false;
         }
         return emailFlag;
+    }
+    
+    //Mobile Number validation
+    public boolean mobileNumberValidation(String mobileNumber)
+    {
+        boolean mobileFlag = false;
+        if(Pattern.matches(MOBILEPATTERN, mobileNumber))
+        {
+           mobileFlag = true;
+        }
+        else
+        {
+           mobileFlag = false;
+        }
+        return mobileFlag;
     }
 }

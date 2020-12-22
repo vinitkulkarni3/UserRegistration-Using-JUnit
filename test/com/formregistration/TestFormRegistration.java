@@ -50,4 +50,18 @@ public class TestFormRegistration
         boolean result = formObject.emailValidation("Vini@tgmail.co.in.com"); //with three domain
         assertEquals(true, result);
     }
+    
+    //mobile number validation test case
+    @Test
+    public void getMobile_whenCountryCodeDashMobileNumber_shouldReturnTrue()
+    {    
+        boolean result = formObject.mobileNumberValidation("91-8877665544"); //valid mobile number with country code
+        assertEquals(true, result);
+    }
+    @Test
+    public void getMobile_whenNotHaveCountryCode_shouldReturnFalse() 
+    {    
+        boolean result = formObject.mobileNumberValidation("91887897665544"); //invalid no gap between country code
+        assertEquals(true, result);
+    }
 }
