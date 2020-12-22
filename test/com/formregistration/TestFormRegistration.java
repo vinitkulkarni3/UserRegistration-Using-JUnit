@@ -36,4 +36,18 @@ public class TestFormRegistration
         boolean result = formObject.lastNameValidation("kul"); //only 3 character 
         assertEquals(true, result);
     }
+    
+    //email validation test case
+    @Test
+    public void getEmail_whenEmailValid_shouldReturnTrue()
+    {    
+        boolean result = formObject.emailValidation("Vinit@gmail.com"); //correct format
+        assertEquals(true, result);
+    }
+    @Test
+    public void getEmail_whenThreeDomain_shouldReturnFalse()
+    {    
+        boolean result = formObject.emailValidation("Vini@tgmail.co.in.com"); //with three domain
+        assertEquals(true, result);
+    }
 }
